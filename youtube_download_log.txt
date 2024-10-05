@@ -1,0 +1,2 @@
+[generic] Extracting URL: https%3A%2F%2Fyoutu.be%2FsCIiVN0zIGE%3Fsi%3D1rprtEB58C1m-9Aa
+ERROR: [generic] 'https%3A%2F%2Fyoutu.be%2FsCIiVN0zIGE%3Fsi%3D1rprtEB58C1m-9Aa' is not a valid URL. Set --default-search "ytsearch" (or run  yt-dlp "ytsearch:https%3A%2F%2Fyoutu.be%2FsCIiVN0zIGE%3Fsi%3D1rprtEB58C1m-9Aa" ) to search YouTube
