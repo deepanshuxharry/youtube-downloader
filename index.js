@@ -14,7 +14,7 @@ const downloadVideo = (url, platform, res) => {
   // platform = "youtube"
 
   if (platform === 'youtube') {
-    command = `yt-dlp -o "${outputPath}/%(title)s.%(ext)s" "${url}"`;
+    command = `yt-dlp --cookies /path/to/your/cookies.txt -o "${outputPath}/%(title)s.%(ext)s" "${url}"`;
   } else if (platform === 'instagram') {
     command = `instaloader --dirname-pattern "${outputPath}" --filename-pattern "{profile}_{mediaid}" -- "${url}"`;
   } else {
