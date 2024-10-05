@@ -10,11 +10,11 @@ app.use(express.json());
 
 const downloadVideo = (url, platform, res) => {
   const outputPath = path.join(__dirname, 'downloads');
+  const cookiesPath = path.join(__dirname, 'cookies.txt'); // Dynamically generate the path for cookies.txt
   let command;
-  // platform = "youtube"
 
   if (platform === 'youtube') {
-    command = `yt-dlp --cookies /path/to/your/cookies.txt -o "${outputPath}/%(title)s.%(ext)s" "${url}"`;
+    command = `yt-dlp --cookies "${cookiesPath}" -o "${outputPath}/%(title)s.%(ext)s" "${url}"`;
   } else if (platform === 'instagram') {
     command = `instaloader --dirname-pattern "${outputPath}" --filename-pattern "{profile}_{mediaid}" -- "${url}"`;
   } else {
@@ -32,14 +32,16 @@ const downloadVideo = (url, platform, res) => {
 
 app.get("/", (req, res) => {
   res.json({ message: 'Welcome to the Video Downloader API!' });
-})
+});
+
 app.post('/download/youtube', (req, res) => {
   const { url } = req.body;
 
   if (!url) {
     return res.status(400).send({ error: 'No URL provided' });
   }
-  platform = "youtube"
+
+  const platform = "youtube";
   downloadVideo(url, platform, res);
 });
 
